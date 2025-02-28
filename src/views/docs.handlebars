@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation: Simple Authentication App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            padding: 40px;
+            line-height: 1.6;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        h1, h2, h3 {
+            font-weight: 600;
+            color: #111;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .back-home {
+            display: block;
+            margin: 20px 0;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <a href="/" class="back-home">← Go Back Home</a>
+        <h1>Documentation: Simple Authentication App</h1>
+        <p>This is a simple authentication app built using Node.js, TypeScript, Express, MongoDB, and Handlebars for the front end. It follows the MVC (Model-View-Controller) architecture.</p>
+        
+        <h2>Features</h2>
+        <ul>
+            <li>User Registration with bcryptjs password hashing.</li>
+            <li>Session-based authentication with express-session.</li>
+            <li>Error handling for duplicate usernames and server issues.</li>
+            <li>Dockerized MongoDB for consistency.</li>
+        </ul>
+        
+        <h2>Technologies Used</h2>
+        <h3>Backend:</h3>
+        <ul>
+            <li>Node.js, Express, TypeScript, MongoDB (Mongoose)</li>
+            <li>bcryptjs, express-session</li>
+        </ul>
+        
+        <h3>Frontend:</h3>
+        <ul>
+            <li>Handlebars, Bootstrap</li>
+        </ul>
+        
+        <h2>Setup & Run</h2>
+        <h3>1. Prerequisites</h3>
+        <ul>
+            <li>Node.js (v16+), Docker (optional)</li>
+        </ul>
+        
+        <h3>2. Clone & Install</h3>
+        <pre><code>git clone &lt;repository-url&gt;
+cd auth-app
+npm install</code></pre>
+        
+        <h3>3. Configure Environment</h3>
+        <pre><code>SESSION_SECRET=your-secret-key
+MONGO_URI=mongodb://localhost:27017/auth_app</code></pre>
+        
+        <h3>4. Run the App</h3>
+        <p>Development Mode:</p>
+        <pre><code>npm run dev</code></pre>
+        <p>Production Mode:</p>
+        <pre><code>npm run build
+npm start</code></pre>
+        <p>Access at: <code>http://localhost:3000</code>.</p>
+        
+        <h2>Future Enhancements</h2>
+        <ul>
+            <li>Email Verification</li>
+            <li>Password Reset</li>
+            <li>Unit Testing</li>
+        </ul>
+    </main>
+    <footer>
+        <p>Developed by Open Source Contributors</p>
+    </footer>
+</body>
+</html>

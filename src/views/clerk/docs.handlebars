@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation: Simple App Using Clerk</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            padding: 40px;
+            line-height: 1.6;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        h1, h2, h3 {
+            font-weight: 600;
+            color: #111;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .back-home {
+            display: block;
+            margin: 20px 0;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <a href="/" class="back-home">← Go Back Home</a>
+        <h1>Documentation: Simple App Using Clerk</h1>
+        <p>This authentication app is built using Clerk with Next.js, streamlining authentication without manual session handling and password management.</p>
+        
+        <h2>Why Clerk?</h2>
+        <ul>
+            <li>Secure and scalable authentication with minimal setup.</li>
+            <li>Built-in multi-factor authentication, social logins, and email/password authentication.</li>
+            <li>Optimized for Next.js with API route integration.</li>
+            <li>JWT-based authentication for secure API interactions.</li>
+        </ul>
+        
+        <h2>Technologies Used</h2>
+        <h3>Backend:</h3>
+        <ul>
+            <li>Next.js (API Routes), Clerk SDK</li>
+        </ul>
+        
+        <h3>Frontend:</h3>
+        <ul>
+            <li>Next.js, Clerk React SDK</li>
+        </ul>
+        
+        <h2>Setup & Run</h2>
+        <h3>1. Prerequisites</h3>
+        <ul>
+            <li>Node.js (v16+), Clerk Account</li>
+        </ul>
+        
+        <h3>2. Clone & Install</h3>
+        <pre><code>git clone &lt;repository-url&gt;
+cd clerk-nextjs-app
+npm install</code></pre>
+        
+        <h3>3. Configure Clerk</h3>
+        <p>Set up Clerk API keys in your <code>.env.local</code> file:</p>
+        <pre><code>CLERK_FRONTEND_API=your-clerk-frontend-api
+CLERK_SECRET_KEY=your-clerk-secret-key
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key</code></pre>
+        
+        <h3>4. Run the App</h3>
+        <p>Development Mode:</p>
+        <pre><code>npm run dev</code></pre>
+        <p>Production Mode:</p>
+        <pre><code>npm run build
+npm start</code></pre>
+        <p>Access at: <code>http://localhost:3000</code>.</p>
+        
+        <h2>Future Enhancements</h2>
+        <ul>
+            <li>Custom role-based authentication</li>
+            <li>Integration with third-party identity providers</li>
+            <li>Server-side validation improvements</li>
+        </ul>
+    </main>
+    <footer>
+        <p>Developed by Imran Hirey</p>
+    </footer>
+</body>
+</html>

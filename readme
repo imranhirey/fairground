@@ -1,0 +1,205 @@
+# Documentation: Simple Authentication App
+
+This is a simple authentication app built using Node.js, TypeScript, Express, MongoDB, and Handlebars for the front end. It follows the MVC (Model-View-Controller) architecture.
+
+## Features
+### User Registration:
+- Users can register with a unique username and password.
+- Passwords are hashed using bcryptjs.
+
+### User Login:
+- Users can log in with their credentials.
+- Sessions are managed using express-session.
+
+### User Logout:
+- Users can log out, which destroys their session.
+
+### Error Handling:
+- Duplicate username errors are handled gracefully.
+- Server errors are caught and displayed to the user.
+
+### Docker Support:
+- MongoDB is containerized using Docker.
+
+## Technologies Used
+### Backend:
+- Node.js
+- Express
+- TypeScript
+- MongoDB (with Mongoose)
+- bcryptjs (for password hashing)
+- express-session (for session management)
+
+### Frontend:
+- Handlebars (for templating)
+- Bootstrap (for styling)
+
+### Docker:
+- MongoDB container
+
+## How to Set Up and Run the App
+### 1. Prerequisites
+- Install Node.js (v16 or higher).
+- Install Docker (if using Docker for MongoDB).
+- Install MongoDB (if not using Docker).
+
+### 2. Clone the Repository
+```bash
+git clone <repository-url>
+cd auth-app
+```
+
+### 3. Install Dependencies
+```bash
+npm install
+```
+
+### 4. Set Up Environment Variables
+Create a `.env` file in the root directory:
+```env
+SESSION_SECRET=your-secret-key
+MONGO_URI=mongodb://localhost:27017/auth_app
+```
+
+### 5. Run MongoDB with Docker
+If you want to use Docker for MongoDB, follow these steps:
+
+Create a `docker-compose.yml` file:
+```yaml
+version: '3.8'
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
+```
+
+Start the MongoDB container:
+```bash
+docker-compose up -d
+```
+
+Verify the container is running:
+```bash
+docker ps
+```
+
+Stop the container (when needed):
+```bash
+docker-compose down
+```
+
+### 6. Run the App
+#### Development Mode:
+```bash
+npm run dev
+```
+
+#### Production Mode:
+```bash
+npm run build
+npm start
+```
+
+Access the app at: `http://localhost:3000`.
+
+## How to Use the App
+### 1. Registration
+- Visit `/register`.
+- Enter a unique username and password.
+- If the username already exists, you’ll see an error message: "Username already exists. Please choose a different username."
+- On successful registration, you’ll be redirected to the login page.
+
+### 2. Login
+- Visit `/login`.
+- Enter your username and password.
+- If the credentials are correct, you’ll be redirected to the home page.
+- If the credentials are incorrect, you’ll stay on the login page.
+
+### 3. Home Page
+- If you’re logged in, you’ll see: "Welcome, [username]!" and a "Logout" button.
+- If you’re not logged in, you’ll see: "Welcome to the Auth App! Please log in to continue."
+
+### 4. Logout
+- Click the "Logout" button on the home page.
+- You’ll be logged out and redirected to the home page.
+
+## Error Handling
+### 1. Duplicate Username
+- If a user tries to register with an existing username, they’ll see: "Username already exists. Please choose a different username."
+
+### 2. Server Errors
+- If an unexpected error occurs (e.g., database connection issue), the user will see: "An error occurred during registration. Please try again."
+
+## Folder Structure
+```
+auth-app/
+├── src/
+│   ├── controllers/        # Controllers for handling routes
+│   ├── models/             # MongoDB models
+│   ├── views/              # Handlebars templates
+│   ├── routes/             # Express routes
+│   ├── middleware/         # Custom middleware (e.g., authentication)
+│   ├── types/              # Custom TypeScript types
+│   └── index.ts            # Entry point
+├── docker-compose.yml      # Docker configuration for MongoDB
+├── .env                    # Environment variables
+├── tsconfig.json           # TypeScript configuration
+└── package.json            # Node.js dependencies and scripts
+```
+
+## Docker for MongoDB
+### 1. Why Use Docker?
+- Docker ensures a consistent environment for running MongoDB.
+- You don’t need to install MongoDB locally.
+
+### 2. How to Use Docker
+#### Start MongoDB:
+```bash
+docker-compose up -d
+```
+
+#### Stop MongoDB:
+```bash
+docker-compose down
+```
+
+#### Access MongoDB Shell:
+```bash
+docker exec -it mongo mongosh -u root -p example
+```
+
+## Troubleshooting
+### 1. MongoDB Connection Issues
+- Ensure MongoDB is running (either locally or in Docker).
+- Check the `MONGO_URI` in `.env`.
+
+### 2. TypeScript Errors
+- Ensure all TypeScript dependencies are installed:
+```bash
+npm install --save-dev typescript @types/node @types/express
+```
+
+### 3. Session Issues
+- Ensure the `SESSION_SECRET` in `.env` is set.
+
+## Future Improvements
+- **Email Verification**: Send a verification email after registration.
+- **Password Reset**: Allow users to reset their password via email.
+- **Real-Time Username Check**: Use AJAX to check username availability during registration.
+- **Unit Tests**: Add tests using Jest or Mocha.
+
+## Conclusion
+This app provides a simple and clean implementation of user authentication. It’s easy to set up, extend, and deploy. With Docker, you can ensure a consistent development environment.
+
+Let me know if you need further assistance or enhancements! 🚀
+

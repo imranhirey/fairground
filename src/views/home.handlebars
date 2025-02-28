@@ -1,0 +1,16 @@
+{{#if user}}
+  <h1>Welcome, {{user.username}}!</h1>
+  <p>You are successfully logged into the Fairground Music Sample Auth App.</p>
+  <p><strong>Note:</strong> This application is not production-ready and may not meet advanced security standards. For a more secure and reliable authentication solution, please see <a href="/docs/clerk" target="_blank">Simple App With Clerk</a>.</p>
+  <p>For general assistance or troubleshooting, refer to the <a href="/docs" target="_blank">documentation</a>.</p>
+  <a href="/logout" class="btn btn-danger">Logout</a>
+{{else}}
+  <h1>Fairground Music Sample Auth App</h1>
+  <p>Developed by Imran Hirey</p>
+  <p>A basic authentication demo for learning purposes.</p>
+  <p><strong>Important:</strong> This app is not designed for production use. For a more secure and reliable authentication implementation, see <a href="/docs/clerk" target="_blank">Simple App With Clerk</a>.</p>
+  <p>For guidance and troubleshooting, visit the <a href="/docs" target="_blank">documentation</a>.</p>
+
+  <a href="/login" class="btn btn-primary">Login</a>
+  <a href="/register" class="btn btn-success">Sign Up</a>
+{{/if}}
