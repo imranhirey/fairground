@@ -1,4 +1,11 @@
 <h1>Login</h1>
+
+{{#if error}}
+  <div class="alert alert-danger" role="alert">
+    {{error}}
+  </div>
+{{/if}}
+
 <form action="/login" method="POST">
   <div class="mb-3">
     <label for="username" class="form-label">Username</label>
@@ -10,4 +17,8 @@
   </div>
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
+
 <p>Don't have an account? <a href="/register">Register</a></p>
+
+<!-- Home Button -->
+<a href="/" class="btn btn-secondary">Home</a>

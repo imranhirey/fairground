@@ -10,18 +10,19 @@ export const getHome = (req: Request, res: Response) => {
 export const getLogin = (req: Request, res: Response) => {
   res.render('login');
 };
-
 export const postLogin = async (req: Request, res: Response) => {
   const { username, password } = req.body;
   const user = await User.findOne({ username });
+
   if (user && await bcrypt.compare(password, user.password)) {
     //@ts-ignore
     req.session.user = { _id: user._id.toString(), username: user.username };
     res.redirect('/');
   } else {
-    res.redirect('/login');
+    res.render('login', { error: 'Invalid username or password' });
   }
 };
+
 
 export const getRegister = (req: Request, res: Response) => {
   res.render('register');
