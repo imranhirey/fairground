@@ -30,7 +30,7 @@ export const getRegister = (req: Request, res: Response) => {
 
 // for quick prototyping only -> this should be in separate file for speartion of concerns
 export const getDocs = (req: Request, res: Response) => {
-    res.render('/docs');
+    res.render('docs');
   };
   
 

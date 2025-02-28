@@ -23,7 +23,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-      mongoUrl: "mongodb://localhost:27017/auth_app",
+      mongoUrl: "mongodb://localhost:27017/auth_app", //  should be in .env file but i hard coded for prototyping purpose only
     }),
   })
 );
@@ -40,7 +40,7 @@ app.get("/clerk/docs", getDocs);
 
 app.use("/", authRoutes);
 // Start server
-const PORT = 3001;
+const PORT = 3000
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`)
 );
